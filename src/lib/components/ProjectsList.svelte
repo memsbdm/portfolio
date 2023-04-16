@@ -130,7 +130,7 @@
               content: "";
               position: absolute;
               height: .15vw;
-              width: 100%;
+              width: 95%;
               bottom: 0;
               left: 0;
               background-color: var(--color-black);

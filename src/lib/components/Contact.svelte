@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+    let phoneNumber = '(+33)6 04 09 04 38';
+    let email = 'mehmetbdm@outlook.fr';
     let observer;
     let isVisible = [];
     let divElements = [];
@@ -11,15 +13,42 @@
             });
             observer.observe(element);
         })
+
         return () => {
             divElements.forEach(()=>{
                 observer.disconnect();
             });
 
         };
-    });
-</script>
 
+    });
+    function copyEmail() {
+        let timeoutId;
+        navigator.clipboard.writeText(email).then(function() {
+            document.querySelector('.copied p').style.opacity = 1;
+            timeoutId = setTimeout(()=>{
+                document.querySelector('.copied p').style.opacity = 0;
+            },1000)
+        }, function() {
+            console.error("Email not copied.")
+        });
+        return clearTimeout(timeoutId);
+    }
+
+    function copyPhoneNumber() {
+        let timeoutId;
+        navigator.clipboard.writeText(phoneNumber).then(function() {
+            document.querySelector('.copied p').style.opacity = 1;
+            timeoutId = setTimeout(()=>{
+                document.querySelector('.copied p').style.opacity = 0;
+            },1000)
+        }, function() {
+            console.error("Phone number not copied.")
+        });
+        return clearTimeout(timeoutId);
+    }
+
+</script>
 <section>
     <div class="border" style="width: {isVisible[0] ? '100%' : '0'}" bind:this={divElements[0]}></div>
     <div class="container">
@@ -34,7 +63,6 @@
                 <a href="">INSTAGRAM</a>
                 <a href="">LINKEDIN</a>
                 <a href="">GITHUB</a>
-                <a href="">TWITTER</a>
             </div>
             <div class="border" style="width: {isVisible[3] ? '100%' : '0'}" bind:this={divElements[3]}></div>
         </div>
@@ -47,9 +75,12 @@
 
             <div class="bot">
                 <p>NEW BUSINESS:</p>
-                <a href="">mehmetbdm@outlook.fr</a>
+                <span on:click={copyEmail}>{email}</span>
                 <p>PHONE:</p>
-                <a href="">(+33)6 04 09 04 38</a>
+                <span on:click={copyPhoneNumber}>{phoneNumber}</span>
+                <div class="copied">
+                    <p>Copied to the clipboard!</p>
+                </div>
             </div>
             <div class="border" style="width: {isVisible[6] ? '100%' : '0'}" bind:this={divElements[6]}></div>
         </div>
@@ -61,6 +92,21 @@
 
 
 <style lang="scss">
+  .copied{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--color-red);
+    margin-top: 1vw;
+    font-size: 1.5vw;
+    p{
+      opacity: 0;
+      transition: all 300ms;
+    }
+  }
     section{
       font-family: var(--ff-text);
       letter-spacing: 3px;
@@ -83,10 +129,13 @@
         margin-top: 2vw;
       }
     }
-    a{
+    a, span{
       font-size: 1.15vw;
     }
 
+    .get__in__touch span{
+      cursor: pointer;
+    }
     .border{
       height: .2vw;
       transition: all 900ms;
@@ -140,7 +189,7 @@
       p{
         font-size: 2vw;
       }
-      a{
+      a, span{
         font-size: 1.9vw;
       }
       .social__links a{

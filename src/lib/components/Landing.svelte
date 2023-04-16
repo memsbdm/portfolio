@@ -337,6 +337,9 @@
   }
   @media screen and (max-width: 550px){
     section{
+      h1{
+        font-size: min(19.5vw, 375px);
+      }
       h2{
         margin-top: 5rem;
       }

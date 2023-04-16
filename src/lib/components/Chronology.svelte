@@ -229,11 +229,23 @@
     @media screen and (max-width: 700px){
       .controls{
         .before__text, .after__text{
-            font-size: .7rem;
+            font-size: .7rem!important;
         }
         .before{
           .line__before{
-
+            height: 2px;
+          }
+          span{
+            font-size: 1.2rem;
+          }
+        }
+        .after{
+          .line__after{
+            right: 3px;
+            height: 2px;
+          }
+          span{
+            font-size: 1.2rem;
           }
         }
       }

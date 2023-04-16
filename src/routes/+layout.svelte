@@ -126,7 +126,7 @@
         transform: scale(0);
         .line1{
           width: 1.5rem;
-          height: 2.5px;
+          height: 2px;
           background-color: var(--color-black);
           position: absolute;
           top: 50%;
@@ -135,7 +135,7 @@
         }
         .line2{
           width: 1.5rem;
-          height: 2.5px;
+          height: 2px;
           background-color: var(--color-black);
           position: absolute;
           top: 50%;
@@ -143,7 +143,7 @@
           transform: translate(-50%, -50%) rotate(45deg);
         }
         .line3{
-          width: 2.5px;
+          width: 2px;
           height: 1.5rem;
           background-color: var(--color-black);
           position: absolute;
@@ -152,7 +152,7 @@
           transform: translate(-50%, -50%) rotate(45deg);
         }
         .line4{
-          width: 2.5px;
+          width: 2px;
           height: 1.5rem;
           background-color: var(--color-black);
           position: absolute;
