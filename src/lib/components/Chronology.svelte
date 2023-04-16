@@ -190,6 +190,7 @@
       font-size: min(30vw, 320px);
       text-align: center;
       font-family: var(--ff-title);
+      font-weight: normal;
     }
 
     .material-symbols-rounded {

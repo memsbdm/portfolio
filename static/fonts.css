@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Freight";
     src: url("fonts/FreightBigBold.otf");
+    font-weight: bold;
 }
 
-
 @font-face {
-    font-family: "Alte Haas Grotesk";
-    src: url("fonts/Alte Haas Grotesk Bold.ttf");
-    font-weight: bold;
+    font-family: "Freight";
+    src: url("fonts/FreightBigProMedium-Regular.ttf");
+    font-weight: normal;
 }
 
 @font-face {
@@ -15,3 +15,10 @@
     src: url("fonts/Alte Haas Grotesk Regular.ttf");
     font-weight: normal;
 }
+
+@font-face {
+    font-family: "Alte Haas Grotesk";
+    src: url("fonts/Alte Haas Grotesk Bold.ttf");
+    font-weight: bold;
+}
+

@@ -115,6 +115,8 @@
         h3{
           margin: 0 0 0 3vw;
           font-family: var(--ff-title);
+          font-weight: normal;
+          letter-spacing: 1px;
           font-size: 7vw;
           position: relative;
           span{

@@ -30,7 +30,6 @@
         </div>
     </section>
 </div>
-
 <style lang="scss">
   section{
     min-height: 100vh;
@@ -50,6 +49,7 @@
 
   h2{
     font-family: var(--ff-title);
+    font-weight: normal;
     font-size: 3vw;
     opacity: 0;
     animation: appear 2.5s forwards;
