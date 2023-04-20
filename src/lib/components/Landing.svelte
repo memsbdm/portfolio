@@ -30,7 +30,7 @@
             </a>
 
 
-            <a href="/test" class="resume">DOWNLOAD MY RESUME</a>
+            <a href="/CV_Mehmet_BADEM.pdf" download class="resume">DOWNLOAD MY RESUME</a>
         </div>
     </section>
 </div>
