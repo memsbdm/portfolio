@@ -2,6 +2,11 @@
     import {onMount} from "svelte";
 
     onMount(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+        });
+
         const logo = document.querySelector('header svg');
         const switchMode = document.querySelector('.switch__mode');
         const circle = document.querySelector('.circle');
