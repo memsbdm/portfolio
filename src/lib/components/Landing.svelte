@@ -57,7 +57,7 @@
     font-size: 3vw;
     opacity: 0;
     animation: appear 2.5s forwards;
-    animation-delay: 2s;
+    animation-delay: 4s;
     max-width: 25ch;
     span{
       position: relative;
@@ -67,7 +67,7 @@
         height: .2vw;
         width: 0;
         animation: underline 1s forwards;
-        animation-delay: 4.5s;
+        animation-delay: 6.5s;
         bottom: 0;
         left: 0;
         background-color: var(--color-black);
@@ -202,67 +202,77 @@
     width: 50vw;
     transform: translate3d(-50%,-70%,0);
     animation: fill 2s ease forwards;
-    animation-delay: 3s;
+    animation-delay: 5s;
   }
 
   #badem path:nth-child(1){
     stroke-dasharray:6387.9814453125;
     stroke-dashoffset:6387.9814453125;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(2){
     stroke-dasharray:887.3826904296875;
     stroke-dashoffset:887.3826904296875;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(3){
     stroke-dasharray:1487.029541015625;
     stroke-dashoffset:1487.029541015625;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(4){
     stroke-dasharray:594.1278076171875;
     stroke-dashoffset:594.1278076171875;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(5){
     stroke-dasharray:1346.7427978515625;
     stroke-dashoffset:1346.7427978515625;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(6){
     stroke-dasharray:6387.9814453125;
     stroke-dashoffset:6387.9814453125;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(7){
     stroke-dasharray:887.3826904296875;
     stroke-dashoffset:887.3826904296875;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(8){
     stroke-dasharray:1487.029541015625;
     stroke-dashoffset:1487.029541015625;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(9){
     stroke-dasharray:594.1278076171875;
     stroke-dashoffset:594.1278076171875;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
   #badem path:nth-child(10){
     stroke-dasharray:1346.7427978515625;
     stroke-dashoffset:1346.7427978515625;
     animation: anim 5s ease forwards;
+    animation-delay: 2s;
   }
 
 

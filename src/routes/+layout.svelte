@@ -1,11 +1,8 @@
 <script>
     import {onMount} from "svelte";
+    import { fade } from 'svelte/transition';
 
     onMount(()=>{
-        window.scrollTo({
-            top: 0,
-            left: 0,
-        });
 
         const logo = document.querySelector('header svg');
         const switchMode = document.querySelector('.switch__mode');
@@ -13,6 +10,13 @@
         const lines = document.querySelector('.lines');
         const hideCircle = document.querySelector('.hide__circle');
         let moon = true;
+
+        setTimeout(()=>{
+            window.scrollTo({
+                top: 0,
+                left: 0,
+            });
+        }, 1500)
 
         const handleClick = () => {
             if(moon){
@@ -98,8 +102,17 @@
         }
     })
 
-
+    $:pourcent = 0;
+    for(let i=0; i<100; i++){
+        setTimeout(()=>pourcent+=1, i*20);
+    }
 </script>
+{#if pourcent < 100}
+<div class="progressbar" out:fade>
+    <span>{pourcent}%</span>
+    <div class="line" style="width: {pourcent}%"></div>
+</div>
+{/if}
 <div class="container">
     <header>
         <svg width="134" height="65" viewBox="0 0 134 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,8 +145,6 @@
         --ff-text: Alte Haas Grotesk, sans-serif;
     }
 
-
-
     :global(body){
         background-color: var(--color-white);
         margin: 0;
@@ -143,6 +154,26 @@
 
     :global(.container){
         padding: 0 20px;
+    }
+
+    .progressbar{
+      background-color: var(--color-white);
+      z-index: 100;
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span{
+        text-align: center;
+        font-family: var(--ff-text);
+        font-size: 15vw;
+      }
+      .line{
+        width: 50%;
+        height: 1vw;
+        background-color: var(--color-black);
+      }
     }
 
     header{
