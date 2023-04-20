@@ -1,5 +1,6 @@
 <div class="container">
-    <section>
+    <section id="dates">
+        <div id="next"></div>
         <div class="controls">
             <div class="before" on:click={before}>
                 <div class="line__before"></div>
@@ -135,7 +136,11 @@
 
 <style lang="scss">
     section{
-      padding-top: 3rem;
+      margin-top: calc(8vw - 100px);
+      padding-top: 7vw;
+    }
+    #next{
+      padding-top: 100px;
     }
     .controls{
       display: flex;
@@ -186,7 +191,7 @@
     }
 
     h4{
-      margin: 5vw 0;
+      margin: 3vw 0;
       font-size: min(30vw, 320px);
       text-align: center;
       font-family: var(--ff-title);

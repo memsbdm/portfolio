@@ -25,9 +25,9 @@
     function copyEmail() {
         let timeoutId;
         navigator.clipboard.writeText(email).then(function() {
-            document.querySelector('.copied p').style.opacity = 1;
+            document.querySelector('.copied p').style.opacity = '1';
             timeoutId = setTimeout(()=>{
-                document.querySelector('.copied p').style.opacity = 0;
+                document.querySelector('.copied p').style.opacity = '0';
             },1000)
         }, function() {
             console.error("Email not copied.")
@@ -38,9 +38,9 @@
     function copyPhoneNumber() {
         let timeoutId;
         navigator.clipboard.writeText(phoneNumber).then(function() {
-            document.querySelector('.copied p').style.opacity = 1;
+            document.querySelector('.copied p').style.opacity = '1';
             timeoutId = setTimeout(()=>{
-                document.querySelector('.copied p').style.opacity = 0;
+                document.querySelector('.copied p').style.opacity = '0';
             },1000)
         }, function() {
             console.error("Phone number not copied.")
@@ -60,9 +60,9 @@
             <div class="border" style="width: {isVisible[2] ? '100%' : '0'}" bind:this={divElements[2]}></div>
 
             <div class="bot">
-                <a href="">INSTAGRAM</a>
-                <a href="">LINKEDIN</a>
-                <a href="">GITHUB</a>
+                <a href="https://fr.linkedin.com/in/mehmet-badem-b89b20189" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/memsbdm" target="_blank">GITHUB</a>
+                <a href="https://www.instagram.com/memsbdm/" target="_blank">INSTAGRAM</a>
             </div>
             <div class="border" style="width: {isVisible[3] ? '100%' : '0'}" bind:this={divElements[3]}></div>
         </div>
@@ -105,6 +105,7 @@
     p{
       opacity: 0;
       transition: all 300ms;
+      font-weight: normal;
     }
   }
     section{

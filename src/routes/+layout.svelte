@@ -2,38 +2,57 @@
     import {onMount} from "svelte";
 
     onMount(()=>{
+        const logo = document.querySelector('header svg');
         const switchMode = document.querySelector('.switch__mode');
         const circle = document.querySelector('.circle');
         const lines = document.querySelector('.lines');
         const hideCircle = document.querySelector('.hide__circle');
         let moon = true;
-        switchMode.addEventListener('click',()=>{
+
+        const handleClick = () => {
             if(moon){
-                lines.style.transform = 'scale(1)';
-                circle.style.transform = 'rotate(90deg) scale(0.6)';
-                hideCircle.style.top = '-1rem';
-                hideCircle.style.right = '-1rem';
+                setTimeout(()=>{
+                    lines.style.transform = 'scale(1)';
+                    circle.style.transform = 'rotate(90deg) scale(0.6)';
+                    hideCircle.style.top = '-1rem';
+                    hideCircle.style.right = '-1rem';
+                    hideCircle.style.transform = 'scale(0)';
+                }, 300)
+
+                document.documentElement.style.setProperty('--color-black', 'rgb(255, 248, 235)');
+                document.documentElement.style.setProperty('--color-white', '#111010FF');
             }
             else{
-                lines.style.transform = 'scale(0)';
-                circle.style.transform = 'unset';
-                hideCircle.style.top = '-.1rem';
-                hideCircle.style.right = '-.1rem';
+                setTimeout(()=>{
+                    lines.style.transform = 'scale(0)';
+                    circle.style.transform = 'unset';
+                    hideCircle.style.top = '-.1rem';
+                    hideCircle.style.right = '-.1rem';
+                    hideCircle.style.transform = 'scale(1)';
+                }, 300)
+
+                document.documentElement.style.setProperty('--color-black', '#111010FF');
+                document.documentElement.style.setProperty('--color-white', 'rgb(255, 248, 235)');
             }
             moon = !moon;
-        })
-        circle.addEventListener('mouseover',()=>{
+        }
+
+        switchMode.addEventListener('click', handleClick)
+
+        const handleMouseOver = () => {
             if(moon){
                 circle.style.transform = 'rotate(90deg)';
-                hideCircle.style.top = '-1rem';
-                hideCircle.style.right = '-1rem';
+                hideCircle.style.top = '-3rem';
+                hideCircle.style.right = '-3rem';
             }
             else{
                 circle.style.transform = 'rotate(90deg) scale(1)';
             }
-        })
+        }
 
-        circle.addEventListener('mouseleave',()=>{
+        circle.addEventListener('mouseover', handleMouseOver)
+
+        const handleMouseLeave = () => {
             if(moon){
                 circle.style.transform = 'rotate(0deg)';
                 hideCircle.style.top = '-.1rem';
@@ -42,11 +61,40 @@
             else{
                 circle.style.transform = 'rotate(90deg) scale(0.6)';
             }
-        })
+        }
+
+        circle.addEventListener('mouseleave', handleMouseLeave)
+
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+            });
+        };
+
+        logo.addEventListener('click', scrollToTop);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        return ()=>{
+            logo.removeEventListener('click', scrollToTop);
+            switchMode.removeEventListener('click', handleClick)
+            circle.removeEventListener('mouseover', handleMouseOver)
+            circle.removeEventListener('mouseleave', handleMouseLeave)
+        }
     })
+
+
 </script>
-
-
 <div class="container">
     <header>
         <svg width="134" height="65" viewBox="0 0 134 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,17 +120,20 @@
 
 <style lang="scss">
     :root{
-        --color-black: #000000;
+        --color-black: #111010FF;
         --color-white: rgb(255, 248, 235);
         --color-red: #C92D1F;
         --ff-title: Freight, sans-serif;
         --ff-text: Alte Haas Grotesk, sans-serif;
     }
 
+
+
     :global(body){
         background-color: var(--color-white);
         margin: 0;
         padding: 0;
+        color: var(--color-black);
     }
 
     :global(.container){
@@ -91,7 +142,7 @@
 
     header{
         position: fixed;
-        z-index: 99;
+        z-index: 98;
         padding: 0 20px;
         top: 0;
         left: 0;
@@ -99,12 +150,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+      background-color: var(--color-white);
     }
 
     svg{
         width: 2.5rem;
         cursor: pointer;
     }
+
     svg path {
         fill: var(--color-black);
     }
@@ -114,6 +167,7 @@
         font-weight: bold;
         font-size: .9rem;
     }
+
     .switch__mode{
       width: 1.5rem;
       height: 1.5rem;
@@ -182,6 +236,12 @@
         position: absolute;
         transition: all 600ms;
         pointer-events: none;
+      }
+    }
+
+    @media screen and (max-width: 700px){
+      .release-date{
+        font-size: .75rem;
       }
     }
 </style>

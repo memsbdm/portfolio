@@ -1,3 +1,4 @@
+
 <div class="container">
     <section>
         <h1>MEHMET
@@ -17,7 +18,8 @@
         <h2>Apprentice Software Engineer based in Strasbourg, <span>France.</span></h2>
         <div>
             <span>LOOKING FOR AN INTERNSHIP</span>
-            <div class="explore">
+
+            <a href="#next" class="explore">
                 <svg id="explore1" width="24" height="103" viewBox="0 0 24 103" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.9393 102.061C11.5251 102.646 12.4749 102.646 13.0607 102.061L22.6066 92.5147C23.1924 91.9289 23.1924 90.9792 22.6066 90.3934C22.0208 89.8076 21.0711 89.8076 20.4853 90.3934L12 98.8787L3.51472 90.3934C2.92893 89.8076 1.97918 89.8076 1.3934 90.3934C0.807612 90.9792 0.807612 91.9289 1.3934 92.5147L10.9393 102.061ZM10.5 0L10.5 101H13.5L13.5 0L10.5 0Z" fill="#C92D1F"/>
                 </svg>
@@ -25,7 +27,9 @@
                 <svg id="explore2" width="209" height="121" viewBox="0 0 209 121" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.58316 120C-1.41289 83.1353 13.2763 1.99966 104.982 2C193.894 2.00033 210.711 78.198 206.382 120" stroke="#C92D1F" stroke-width="3"/>
                 </svg>
-            </div>
+            </a>
+
+
             <a href="/test" class="resume">DOWNLOAD MY RESUME</a>
         </div>
     </section>
@@ -92,8 +96,9 @@
       text-decoration: none;
       margin-bottom: 2rem;
     }
-    div{
+    .explore{
       cursor: pointer;
+      margin: 0;
       width: 15vw;
       height: 15vw;
       border-radius: 50%;
@@ -119,6 +124,7 @@
       #explore2{
         position: absolute;
         width: 15vw;
+        padding-bottom: 2vw;
         path:nth-child(1){
           stroke-dasharray: 0;
           stroke-dashoffset: 0;
@@ -138,11 +144,7 @@
     }
   }
 
-    .explore{
-      #explore2, span{
-        margin-bottom: 2rem;
-      }
-    }
+
 
     @keyframes hoverLink{
       0%{
@@ -284,14 +286,14 @@
 
   @media screen and (max-width: 1100px){
     section > div{
-      div{
+      .explore{
         #explore1{
           top: -1rem;
         }
       }
-      div:hover{
+      .explore:hover{
         #explore1{
-            top: 0rem;
+            top: 0;
         }
       }
     }
@@ -306,7 +308,7 @@
       &>div > span, &>div a{
         display: none;
       }
-      .explore{
+      div{
         margin: 5rem auto 0;
 
         span{
@@ -346,21 +348,20 @@
       #badem{
         margin-top: 4rem;
       }
-      .explore{
+      div{
         margin: 7rem auto 0;
-
         span{
-          font-size: 2.25vw;
+          font-size: 2.25vw!important;
         }
         &:hover #explore1{
-          top: -4rem;
+          top: -3rem!important;
         }
         #explore1{
-          height: 12vw;
-          top: -5rem;
+          height: 12vw!important;;
+          top: -4rem!important;;
         }
         #explore2{
-          width: 27vw;
+          width: 27vw!important;;
         }
       }
     }
