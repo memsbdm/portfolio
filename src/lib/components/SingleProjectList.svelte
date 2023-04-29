@@ -34,6 +34,16 @@
             })
         })
 
+        const projects = document.querySelectorAll('.project');
+        projects[3].addEventListener('click', (event) => {
+            event.preventDefault();
+            return false;
+        })
+        projects[4].addEventListener('click', (event) => {
+            event.preventDefault();
+            return false;
+        })
+
         return () => {
             divElements.forEach(()=>{
                 observer.disconnect();
